@@ -19,9 +19,9 @@ $params = $nameExpr, $lengthExpr
 # Alias "gci" = Get-ChildItem
 # Alias "?" = Where-Object
 $resultado =
-gci -Recurse -File |
-    ? Name -like "*_migrando_*" |
-    select $params
+Get-ChildItem -Recurse -File |
+    Where-Object Name -like "*_migrando_*" |
+    Select-Object $params
 
 #### Formatando HTML
 $estilos = Get-Content C:\scripts\styles.css #Obtem o estilo CSS pra aplica na tabela
