@@ -19,12 +19,18 @@ param(
 # #gera error proposital
 # cd $a
 
-$body_sem_cadastro = Get-ChildItem -Path "C:\temp\" -Name body-message.html | Get-Content | Out-String
-#$body_sem_cadastro2 = $body_sem_cadastro.
-Write-Host($body_sem_cadastro)
+$saida = 123;
 
-$body_sem_cadastro.GetType()
+if ($saida -ne 0) {
+    $saida = 1
+}
+try {
+    adfdfw
+}
+catch {
+    {"TESTE"}
+}
 
-#Write-Host($body_sem_cadastro)
 
-$Error[0] > .\output-erro.txt
+
+#$Error[0] > .\output-erro.txt

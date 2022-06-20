@@ -3,10 +3,14 @@ Autor:               Felipe Vandrilho
 Data de modificação: 15/08/2022
 Objetivo: Envia e-mail para subtituir o operador "SEND_EMAIL" do PAM
 #>
+
 # PARAMETROS
-[string] [Parameter(Position=0, Mandatory)] $email_usu = $args[0]
-[string] [Parameter(Position=1, Mandatory)] $email_pss = $args[1]
-[string] [Parameter(Position=2, Mandatory)] $email_dest = $args[2]
+param (
+[Parameter(Mandatory=$true, Position=0)][string] $email_usu, 
+[Parameter(Mandatory=$true, Position=1)][string] $email_pss,
+[Parameter(Mandatory=$true, Position=2)][string] $email_dest 
+)
+
 
 # Retorna o conteudo do arquivo HTML como String no body
 $body_sem_cadastro = Get-ChildItem -Path "C:\temp\" -Name body-message.html | Get-Content | Out-String
