@@ -14,6 +14,7 @@ param(
 #>
 
 
+
 # pwd > .\output.txt
 # #gera error proposital
 # cd $a

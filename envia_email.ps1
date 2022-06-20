@@ -3,20 +3,18 @@ Autor:               Felipe Vandrilho
 Data de modificação: 15/08/2022
 Objetivo: Envia e-mail para subtituir o operador "SEND_EMAIL" do PAM
 #>
-
-
-#PARAMETROS
+# PARAMETROS
 [string] $email_usu = $args[0]
 [string] $email_pss = $args[1]
 [string] $email_dest = $args[2]
 
-#retorna o conteudo do arquivo HTML como String no body
+# Retorna o conteudo do arquivo HTML como String no body
 $body_sem_cadastro = Get-ChildItem -Path "C:\temp\" -Name body-message.html | Get-Content | Out-String
 
 # USA TLS 1.2
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-#conversao em security string
+#conversao passowrd em security string
 $email_pss_ss = ConvertTo-SecureString -String $email_pss -Force -AsPlainText
 
 #Objeto Credencial
@@ -37,3 +35,5 @@ $smtp_cliente = @{
 }
 
 Send-MailMessage @smtp_cliente
+
+# $Error[0] > "C:\temp\error-output.txt"
